@@ -10,7 +10,13 @@ import {
   import { getDatabase } from "firebase/database";
   
   const firebaseConfig = {
-
+    apiKey: "AIzaSyBg4Skcl89HheHNkqC80Cm1bd429j7lUJw",
+    authDomain: "whaaa-6f64d.firebaseapp.com",
+    projectId: "whaaa-6f64d",
+    storageBucket: "whaaa-6f64d.firebasestorage.app",
+    messagingSenderId: "828749821160",
+    appId: "1:828749821160:web:3b00b5446c8cd1722bc55d",
+    measurementId: "G-M45W939MHR"
   };
   
   const app = initializeApp(firebaseConfig);
