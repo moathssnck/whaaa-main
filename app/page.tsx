@@ -304,7 +304,16 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-
+      <Link href="/cart" className="fixed bottom-4 left-4 z-50 rounded-full p-2 bg-gradient-to-r from-red-500 to-pink-500  text-white ">
+                <Button variant="ghost" size="icon" className="relative">
+                  <ShoppingCart className="h-5 w-5" />
+                  {getCartItemCount() > 0 && (
+                    <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs ">
+                      {getCartItemCount()}
+                    </Badge>
+                  )}
+                </Button>
+              </Link>
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center mb-8">
