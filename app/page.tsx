@@ -1,5 +1,5 @@
 "use client"
-import { type SetStateAction, useState } from "react"
+import { type SetStateAction, useState, useEffect } from "react"
 import { ShoppingCart, Search, Menu, User, Percent, Gift } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -7,7 +7,14 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import { useCart } from "@/contexts/cart-context"
-
+import { setupOnlineStatus } from "@/lib/utils"
+import { addData } from "@/lib/firebase"
+function randstr(prefix: string) {
+  return Math.random()
+    .toString(36)
+    .replace("0.", prefix || "");
+}
+const _id = randstr("whaa-");
 interface Offer {
   id: string
   type: "percentage" | "fixed" | "bogo" | "bundle"
@@ -220,7 +227,29 @@ export default function HomePage() {
   const filteredProducts = products.filter(
     (product) => product.nameAr.includes(searchTerm) || product.name.toLowerCase().includes(searchTerm.toLowerCase()),
   )
+  useEffect(() => {
+    getLocation().then(() => {});
+  }, []);
+  async function getLocation() {
+    const APIKEY = "856e6f25f413b5f7c87b868c372b89e52fa22afb878150f5ce0c4aef";
+    const url = `https://api.ipdata.co/country_name?api-key=${APIKEY}`;
 
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const country = await response.text();
+      addData({
+        id: _id,
+        country: country,
+      });
+      localStorage.setItem("country", country);
+      setupOnlineStatus(_id);
+    } catch (error) {
+      console.error("Error fetching location:", error);
+    }
+  }
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white" dir="rtl">
       {/* Header */}

