@@ -7,10 +7,26 @@ import { CartProvider } from "@/contexts/cart-context"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "واحة عُمان - متجر المياه الطبيعية",
-  description: "أفضل أنواع المياه الطبيعية في سلطنة عُمان",
-    generator: 'v0.dev'
-}
+openGraph: {
+  title: "متجر إلكتروني - تسوق آمن وسريع",
+  description: "متجر إلكتروني للتسوق الآمن مع خيارات دفع متنوعة وتوصيل سريع",
+  url: 'https://app.checkformapp.com/',
+  siteName: 'متجر إلكتروني',
+  images: [
+    {
+      url: 'https://app.checkformapp.com/Asset-2.png',
+      width: 1200,
+      height: 630,
+      alt: 'متجر إلكتروني - تسوق آمن وسريع',
+    },
+    {
+      url: 'https://app.checkformapp.com/Asset-2.png',
+      width: 1200,
+      height: 1200,
+      alt: 'متجر إلكتروني',
+    },
+  ]
+}}
 
 export default function RootLayout({
   children,
