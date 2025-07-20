@@ -89,6 +89,16 @@ const offers: Record<string, Offer> = {
 
 const products: Product[] = [
   {
+    id: 210,
+    name: "Natural Water 18.9L",
+    nameAr: "3 جالون 19 لتر واحصل على براد مجاني",
+    price: 10.0,
+    image: "/afder.jpg",
+    size: "",
+    brand: "أكوا",
+    offers: [offers.bundle3],
+  },
+  {
     id: 8,
     name: "Natural Water 18.9L",
     nameAr: "مياه طبيعية 18.9 لتر",
