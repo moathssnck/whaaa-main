@@ -145,63 +145,23 @@ export default function CheckoutPage() {
                   />
                 </div>
               </CardContent>
-            </Card>
-
-         
-          </div>
+              <CardFooter>
 
           {/* Order Summary */}
-          <div className="xl:col-span-1">
-            <Card className="sticky top-24 border-0 shadow-lg">
-              <CardHeader className="bg-gradient-to-r from-purple-50 to-pink-50">
-                <CardTitle className="flex items-center gap-2 text-gray-800">
-                  <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                    <CheckCircle className="w-4 h-4 text-white" />
-                  </div>
-                  ملخص الطلب
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-6 space-y-4">
-                <div className="space-y-3">
-                  {cartItems.map((item) => (
-                    <div
-                      key={item!.id}
-                      className="flex justify-between items-center text-sm py-2 border-b border-gray-100 last:border-b-0"
-                    >
-                      <div className="flex-1">
-                        <span className="font-medium">{item!.nameAr}</span>
-                        <span className="text-gray-500 mr-2">× {item!.quantity}</span>
-                      </div>
-                      <span className="font-semibold text-blue-600">
-                        {(item!.price * item!.quantity).toFixed(2)} ر.ع
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <Separator />
-
-                <Button
+          <Button
                   type="submit"
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 h-12 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
                 >
                   <Lock className="w-4 h-4 ml-2" />
                   تأكيد الطلب والدفع الآمن
                 </Button>
-                
-
-                <Separator />
-
-
-                <div className="text-center">
-                  <p className="text-xs text-gray-500 flex items-center justify-center gap-1">
-                    <Lock className="w-3 h-3" />
-                    معلوماتك محمية بتشفير SSL 256-bit
-                  </p>
-                </div>
-              </CardContent>
+              </CardFooter>
             </Card>
+
+         
           </div>
+
+                
         </form>
       </main>
     </div>
