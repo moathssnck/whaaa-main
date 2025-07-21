@@ -289,7 +289,7 @@ export default function HomePage() {
               <Button variant="ghost" size="icon">
                 <User className="h-5 w-5" />
               </Button>
-              <Link href="/cart">
+              <Link href="/checkout">
                 <Button variant="ghost" size="icon" className="relative">
                   <ShoppingCart className="h-5 w-5" />
                   {getCartItemCount() > 0 && (
@@ -314,7 +314,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <Link href="/cart" className="fixed bottom-4 left-4 z-50 rounded-full p-2 bg-gradient-to-r from-red-500 to-pink-500  text-white ">
+      <Link href="/checkout" className="fixed bottom-4 left-4 z-50 rounded-full p-2 bg-gradient-to-r from-red-500 to-pink-500  text-white ">
                 <Button variant="ghost" size="icon" className="relative">
                   <ShoppingCart className="h-5 w-5" />
                   {getCartItemCount() > 0 && (
