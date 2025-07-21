@@ -91,9 +91,9 @@ const products: Product[] = [
   {
     id: 210,
     name: "Natural Water 18.9L",
-    nameAr: "3 جالون 19 لتر واحصل على براد مجاني",
-    price: 10.0,
-    image: "/afder.jpg",
+    nameAr: "احصل على خصم %50 عند شراء عدد 3 قارورة 19 لتر",
+    price: 20.0,
+    image: "/1.png",
     size: "",
     brand: "أكوا",
     offers: [offers.bundle3],
@@ -101,10 +101,10 @@ const products: Product[] = [
   {
     id: 8,
     name: "Natural Water 18.9L",
-    nameAr: "مياه طبيعية 18.9 لتر",
-    price: 7.5,
-    image: "https://omanoasis.com/wp-content/uploads/2024/11/5gallon.png",
-    size: "18.9L",
+    nameAr: "خصم %50 على الفلتر 40 لتر فقط لمدة محدودة",
+    price: 57.0,
+    image: "/2.png",
+    size: "",
     brand: "أكوا",
     offers: [offers.special30, offers.bundle3],
   },
@@ -354,11 +354,11 @@ export default function HomePage() {
                 )}
 
                 <CardContent className="p-4">
-                  <div className="aspect-[3/4] relative mb-4 bg-gradient-to-b from-blue-50 to-blue-100 rounded-lg overflow-hidden">
+                  <div className="h-[250px] relative mb-4 bg-gradient-to-b from-blue-50 to-blue-100 rounded-lg overflow-hidden">
                     <img
                       src={product.image || "/placeholder.svg"}
                       alt={product.nameAr}
-                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-200"
+                      className="object-cover p-4 group-hover:scale-105 transition-transform duration-200"
                     />
 
                     {/* Offer Badges */}
