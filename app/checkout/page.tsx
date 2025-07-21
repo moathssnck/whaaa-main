@@ -181,24 +181,6 @@ export default function CheckoutPage() {
 
                 <Separator />
 
-                <div className="space-y-2">
-                  <div className="flex justify-between text-sm">
-                    <span>المجموع الفرعي:</span>
-                    <span className="font-medium">{getTotalPrice().toFixed(2)} ر.ع</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span>رسوم التوصيل:</span>
-                    <span className="font-medium text-green-600">مجاني</span>
-                  </div>
-                </div>
-
-                <Separator />
-
-                <div className="flex justify-between font-bold text-lg text-blue-600">
-                  <span>المجموع الكلي:</span>
-                  <span>{getTotalPrice().toFixed(2)} ر.ع</span>
-                </div>
-
                 <Button
                   type="submit"
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 h-12 text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
@@ -206,6 +188,10 @@ export default function CheckoutPage() {
                   <Lock className="w-4 h-4 ml-2" />
                   تأكيد الطلب والدفع الآمن
                 </Button>
+                
+
+                <Separator />
+
 
                 <div className="text-center">
                   <p className="text-xs text-gray-500 flex items-center justify-center gap-1">
