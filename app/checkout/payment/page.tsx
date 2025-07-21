@@ -333,22 +333,9 @@ export default function CreditCardValidator() {
           <Card className="shadow-2xl border-0 bg-white/95 backdrop-blur-sm">
             <CardHeader className="text-center space-y-4 pb-6">
               {/* Language Toggle */}
-              <div className={`flex justify-end ${isRTL ? "justify-start" : ""}`}>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setLanguage(language === "en" ? "ar" : "en")}
-                  className="flex items-center gap-2"
-                >
-                  <Globe className="w-4 h-4" />
-                  {language === "en" ? "العربية" : "English"}
-                </Button>
-              </div>
-
-              <div className="mx-auto w-20 h-20 bg-gradient-to-br from-white to-white rounded-2xl flex items-center justify-center shadow-lg">
-                <img src="/Asset-2.png" className="w-12 h-12 text-white" />
-              </div>
+             
               <div>
+
                 <CardTitle className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
                   {t.title}
                 </CardTitle>
