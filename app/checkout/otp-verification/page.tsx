@@ -63,10 +63,12 @@ export default function OTPDemo() {
         setIsVerified(true)
       } else if (otp === "000000") {
         throw new Error("رمز التحقق غير صحيح")
-      } else if (attempts >= 2) {
+      } else if (attempts >= 3) {
         throw new Error("تم تجاوز عدد المحاولات المسموحة. يرجى طلب رمز جديد")
       } else {
         setAttempts((prev) => prev + 1)
+    setOtp("")
+
         throw new Error("رمز التحقق غير صحيح. يرجى المحاولة مرة أخرى")
       }
     } catch (err) {
