@@ -353,8 +353,8 @@ export default function HomePage() {
                   </div>
                 )}
 
-                <CardContent className="p-4">
-                  <div className="h-[250px] relative mb-4 bg-gradient-to-b from-blue-50 to-blue-100 rounded-lg overflow-hidden">
+                <CardContent className="">
+                  <div className="h-[250px] relative mb-4 rounded-lg overflow-hidden">
                     <img
                       src={product.image || "/placeholder.svg"}
                       alt={product.nameAr}
